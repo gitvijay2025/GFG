@@ -1,0 +1,17 @@
+---
+- hosts: devops
+  user: gfg
+  become: yes
+
+  vars:
+    currstate: absent
+
+  tasks:
+    - name: Remove HTOP
+      action: dnf name=htop state='{{ currstate }}'
+
+    - name: Remove Git
+      action: dnf name=git state='{{ currstate }}'
+
+    - name: Autoremove unused packages
+      action: command dnf autoremove -y

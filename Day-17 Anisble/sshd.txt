@@ -1,0 +1,79 @@
+PermitRootLogin prohibit-password
+#PasswordAuthentication no
+#PermitEmptyPasswords no
+
+
+restart sshd.servic
+
+
+
+
+
+vi /etc/ssh/sshd_config
+
+
+
+
+
+
+
+172.31.43.226 : Node1
+
+
+172-31-38-196 : Ansible
+
+======================================== installatio steps ==================
+
+
+Node 1
+sudo su
+adduser demo
+passwd demo
+visudo
+
+# add this line
+
+demo    ALL=(ALL)       NOPASSWD: ALL          
+
+
+ENABLE SSHD SERVCIES
+vi /etc/ssh/sshd_config
+services sshd restart
+
+
+
+
+In ansible master
+
+
+sudo su
+adduser demo
+passwd demo
+
+try to access node1  after ENABLE SSHD SERVCIES
+ssh demo@demo@172.31.43.226
+
+
+But is asking for password every time so we have to add the ssh-keygen in ansible master
+
+
+4  ssh-keygen
+5  ls -a
+6  cd .ssh/
+7  ssh-copy-id demo@172.31.43.226
+
+yum update -y
+yum install ansible -y
+vi /ect/ansible/hosts
+
+[devOps]
+172.31.43.226
+
+save
+
+
+nsible all --list-host
+
+
+    
+    
