@@ -1,0 +1,21 @@
+---
+- name: Install Apache and Git using command module
+  hosts: dbservers 
+  become: yes
+
+  tasks:
+
+    - name: Update apt repository
+      command: apt update
+
+    - name: Install Apache
+      command: apt install -y apache2
+
+    - name: Install Git
+      command: apt install -y git
+
+    - name: Start Apache service
+      command: systemctl start apache2
+
+    - name: Enable Apache service
+      command: systemctl enable apache2

@@ -1,0 +1,42 @@
+cdk init app --language typescript : template project
+
+Build application IaC
+
+npm run build
+
+npm run watch
+
+bin : entry point cdk
+
+
+.npmignore
+
+*.ts
+!*.d.ts
+
+# CDK assest staging directory
+.cdk.staging
+cdk.out
+
+To give permission to visual studio to run the command
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+
+
+Lambda Synchonous invocation
+
+Asynchronous : S3 , EventBridge, SNS, SES, CloudFormation, CloudWatch log, CloudWatch Events, CodeCommit.
+
+
+EventBridge
+
+Serverless event Bus service for AWS services
+
+
+AWS services to Target such as AWS Lambada
+
+
+EventBrideg formerly called Amazon CloudWatch Events
+
